@@ -24,9 +24,28 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/css/icons/icomoon/styles.css",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/layout_1/LTR/default/full/assets/css/bootstrap.min.css",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/layout_1/LTR/default/full/assets/css/bootstrap_limitless.min.css",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/layout_1/LTR/default/full/assets/css/layout.min.css",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/layout_1/LTR/default/full/assets/css/components.min.css",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/layout_1/LTR/default/full/assets/css/colors.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/main/jquery.min.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/main/bootstrap.bundle.min.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/loaders/blockui.min.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/forms/styling/switchery.min.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/ui/moment/moment.min.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/pickers/daterangepicker.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/demo_pages/dashboard.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/forms/styling/uniform.min.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/demo_pages/login.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/layout_1/LTR/default/full/assets/js/app.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/demo_pages/form_inputs.js",
+              "btcss/Limitless_2_1/Bootstrap 4/Template/global_assets/js/plugins/visualization/d3/d3.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -120,6 +139,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "LMS"
 }

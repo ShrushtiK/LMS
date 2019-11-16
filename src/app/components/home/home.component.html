@@ -1,0 +1,56 @@
+<div class="page-content login-cover" style="height:100vh;background-image:url('../../assets/download.jpg' )">
+
+    <!-- Main content -->
+    <div class="content-wrapper" style="padding:0px;">
+        <div class="content d-flex flex-row-reverse align-items-center">
+            <div class="flex-column">
+                <div class="p-1">
+                    <div class="text-center mb-3">
+                        <span class="d-block text-muted">
+                            <h5 style="color:white;font-weight: bolder;font-size: 40px;"> Library<br />
+                                Management System
+                            </h5>
+                        </span>
+                    </div>
+
+                    <!-- Login form -->
+
+
+                </div>
+                <div>
+                    <form class="login-form wmin-sm-400">
+                        <div class="card mb-0">
+                            <ul class="nav nav-tabs nav-justified alpha-grey mb-0">
+                                <li class="nav-item"><a (click)="showOption('login')" id="tab1"
+                                        class="nav-link border-y-0 border-left-0 active">
+                                        <h6 class="my-1">Log in</h6>
+                                    </a></li>
+                                <li class="nav-item"><a (click)="showOption('register')" id="tab2"
+                                        class="nav-link border-y-0 border-right-0">
+                                        <h6 class="my-1">Register</h6>
+                                    </a></li>
+                            </ul>
+
+                            <div class="tab-content card-body">
+                                <div class="tab-pane fade show active" id="login-tab1" *ngIf="show_log">
+                                    <app-home-login></app-home-login>
+                                </div>
+
+                                <div class="tab-pane fade show active" id="login-tab2" *ngIf="show_reg">
+                                    <app-home-register></app-home-register>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- /login form -->
+    </div>
+    <!-- /content area -->
+</div>
+<!-- /main content -->
