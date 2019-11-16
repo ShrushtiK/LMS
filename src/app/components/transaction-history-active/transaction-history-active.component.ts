@@ -14,6 +14,7 @@ export class TransactionHistoryActiveComponent implements OnInit {
     transaction.getActiveTransactions().subscribe(
       res => {
         this.active_transactions = res
+
       },
       err =>
       {
@@ -25,15 +26,17 @@ export class TransactionHistoryActiveComponent implements OnInit {
   ngOnInit() {
   }
 
-  renewBook(transaction_id:string)
+  renewBook(transaction:any)
   {
-    this.transaction.renewTransaction(transaction_id).subscribe(
+    this.transaction.renewTransaction(transaction._id).subscribe(
       res => {
-
+        transaction.Due_Date = res.body.Due_Date
+        transaction.Renew_Count += 1
+        alert("Successfully renewed")
       },
       err =>
       {
-
+        alert(err.error)
       }
     )
   }

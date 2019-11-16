@@ -32,7 +32,9 @@ export class TransactionService {
 
   renewTransaction(transaction_id: string)
   {
-    return this.httpClient.post<any>(this.transaction_renew_url, {Transaction_ID : transaction_id});
+    return this.httpClient.post<any>(this.transaction_renew_url, {Transaction_ID : transaction_id}, {
+      observe: 'response'
+    });
   }
 
 

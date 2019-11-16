@@ -3,7 +3,7 @@
         <div width = "100%">
             <div class="card">
                 <div class="card-header header-elements-inline">
-                    <h4 class="card-title">Active Transactions</h4>
+                    <h4 class="card-title text-center">Active Transactions</h4>
                 </div>
         
                 <div class="card-body">
@@ -27,7 +27,7 @@
                             <td>{{t.Due_Date | date}}</td>
                             <td>{{t.Renew_Count}}</td>
                             <td>{{t.Fine | currency: 'INR':true}}</td>
-                            <td><button class="btn btn-primary" (click) = renewBook(t._id)>Renew</button></td>
+                            <td><button class="btn btn-primary" (click) = renewBook(t)>Renew</button></td>
                           </tr>
                         </tbody>
                     </table>

@@ -26,7 +26,7 @@ export class TransactionHistoryAllComponent implements OnInit {
       },
       err =>
       {
-        console.log("Error")
+        alert(err.error)
       }
     )
   }
