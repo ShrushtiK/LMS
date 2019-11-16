@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { MembershipService } from '../../services/membership.service'
+import { AuthService } from '../../services/auth.service'
+
 
 @Component({
   selector: 'app-cancel-membership',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CancelMembershipComponent implements OnInit {
 
-  constructor() { }
+  constructor( public membershipService : MembershipService, public authService : AuthService, public router: Router ) { }
 
   ngOnInit() {
+  }
+
+  cancelMembership()
+  {
+    this.membershipService.cancelMembership().subscribe(
+      res => {
+        alert("Membership cancelled successfully")
+        this.authService.logoutUser()
+      },
+      err => {
+        alert(err.error)
+      }
+    )
   }
 
 }
