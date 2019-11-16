@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-md" min-height=100vh style="background-color:#fed500;">
+<div class="navbar navbar-expand-md" min-height=100vh style="background-color:#263238 ;">
 
     <div>
         <a href="/" class="d-inline-block">
@@ -72,27 +72,18 @@
 
                     <li class="nav-item nav-item-submenu">
                         <a (click)="showMenuOption('dashboard')" class="nav-link"><i class="icon-color-sampler"></i>
-                            <span>Dashboard</span></a>
+                            <span>Explore Books</span></a>
 
 
                     </li>
                     <li class="nav-item nav-item-submenu">
-                        <a (click)="showMenuOption('videos')" class="nav-link"><i class="icon-stack"></i> <span>Your
-                                Videos</span></a>
+                        <a (click)="showMenuOption('membership_details')" class="nav-link"><i class="icon-stack"></i> <span>
+                                Membership Details</span></a>
                     </li>
                     <li class="nav-item nav-item-submenu">
-                        <a (click)="showMenuOption('videotagcloud')" class="nav-link"><i class="icon-stack"></i>
-                            <span>Your
-                                Video Tag
-                                Cloud</span></a>
+                        <a (click)="showMenuOption('transaction_history')" class="nav-link"><i class="icon-stack"></i> <span>
+                                Transaction History</span></a>
                     </li>
-                    <li class="nav-item nav-item-submenu">
-                        <a (click)="showMenuOption('brand')" class="nav-link"><i class="icon-stack"></i> <span>Your
-                                Brand</span></a>
-                    </li>
-
-
-
                 </ul>
             </div>
             <!-- /main navigation -->
@@ -103,14 +94,16 @@
     </div>
     <!-- /main sidebar -->
     <!-- Main content -->
-    <app-videos *ngIf="show_vid"></app-videos>
-    <app-videotagcloud *ngIf="show_vidtc"></app-videotagcloud>
-    <app-brand *ngIf="show_brand"></app-brand>
-    <div class="content-wrapper" *ngIf="show_dash">
+    <app-get-membership-details *ngIf="show_membership_details"></app-get-membership-details>
+    
+    <app-transaction-history-all *ngIf="show_transaction_history"></app-transaction-history-all>
+
+    <div class="content-wrapper" *ngIf="show_dashboard">
         <!-- Page header -->
         <div class="page-header-content header-elements-md-inline">
             <div class="page-title d-flex">
-                <h3>{{details[0].brandname}}</h3>
+                <!--<h3>{{details[0].brandname}}</h3>-->
+                <h3> Don't know what tp put here</h3>
                 <!--{{MenuOption}}-->
                 <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
             </div>
@@ -130,7 +123,7 @@
                             <h4 class="card-title">Your Assests</h4>
                         </div>
                         <div class="card-body">
-                            Videos: {{details[0].assets}}<br /><br /><br /><br /><br />
+                            Videos: <br /><br /><br /><br /><br />
                             <button type="submit" class="btn btn-primary btn-block" (click)="asset()">Add new
                                 Asset</button>
                         </div>
@@ -144,8 +137,8 @@
 
                         <div class="card-body" width="100%">
 
-                            <ul *ngFor="let i of details[0].audience">
-                                <li>{{i}}</li>
+                            <ul *ngFor="let i of [1,2,3]">
+                                <li>i</li>
                             </ul>
 
                             <button type="submit" class="btn btn-primary btn-block" (click)="audience()">Add
@@ -161,8 +154,8 @@
                         </div>
 
                         <div class="card-body">
-                            <ul *ngFor="let i of details[0].peers">
-                                <li>{{i}}</li>
+                            <ul *ngFor="let i of [1,2,3]">
+                                <li>j</li>
                             </ul>
 
                             <button type="submit" class="btn btn-primary btn-block" (click)="peer()">Add new</button>
@@ -171,82 +164,8 @@
                 </div>
 
             </div>
-            <app-uploadvideo *ngIf="show_addasset"></app-uploadvideo>
-            <!-- <div class="row" *ngIf="show_addasset">
-                <div class="col-xl-12">
-                    <div class="card">
-                        <app-uploadvideo></app-uploadvideo>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- JHBJHBJHBHJ-->
-
-            <div class="row" *ngIf="show_peers">
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header header-elements-inline">
-                            <h4 class="card-title">Add peers</h4>
-                        </div>
-                        <div class="card-body">
-                            <form class="peer-form" ngNativeValidate>
-                                <div class="form-group form-group-feedback form-group-feedback-left">
-                                    <input [(ngModel)]="changepeer" name="changepeer" type="text" class="form-control"
-                                        placeholder="Add your peer here" required>
-                                    <div class="form-control-feedback">
-                                        <i class="icon-pencil7 text-muted"></i>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block" (click)="changePeer()">Add Peer</button>
-                                </div>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" *ngIf="show_aud">
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header header-elements-inline">
-                            <h4 class="card-title">Add Audience</h4>
-                        </div>
-                        <div class="card-body">
-                            <form class="aud-form" ngNativeValidate>
-                                <div class="form-group form-group-feedback form-group-feedback-left">
-                                    <input [(ngModel)]="changeaudience" name="changeaudience" type="text"
-                                        class="form-control" placeholder="Add your audience here" required>
-                                    <div class="form-control-feedback">
-                                        <i class="icon-pencil7 text-muted"></i>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block" (click)="changeAudience()">Add
-                                        Audience</button>
-                                </div>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header header-elements-inline">
-                            <h4 class="card-title">Your Brand</h4>
-                        </div>
-                        <div class="card-body">
-                            {{details[0].about}}
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
+</div>
+
+    

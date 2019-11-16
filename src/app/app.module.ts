@@ -22,6 +22,7 @@ import { GetMembershipDetailsComponent } from './components/get-membership-detai
 import { BookTitleAvailableComponent } from './components/book-title-available/book-title-available.component';
 import { BookAuthorAvailableComponent } from './components/book-author-available/book-author-available.component';
 import { AuthService } from './services/auth.service';
+import { TransactionService } from './services/transaction.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { AuthService } from './services/auth.service';
     MatTableModule,
     MatDialogModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

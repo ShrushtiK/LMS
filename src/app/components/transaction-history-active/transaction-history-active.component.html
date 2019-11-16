@@ -1,1 +1,38 @@
-<p>transaction-history-active works!</p>
+<div class="page-content">
+    <div class="content">
+        <div width = "100%">
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title text-center">Active Transactions</h4>
+                </div>
+        
+                <div class="card-body">
+                    <table class="table text-nowrap text-center">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Renew Count</th>
+                            <th scope="col">Fine</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let t of active_transactions">
+                            <th scope="row">1</th>
+                            <td>{{t.Title}}</td>
+                            <td>{{t.Author}}</td>
+                            <td>{{t.Due_Date | date}}</td>
+                            <td>{{t.Renew_Count}}</td>
+                            <td>{{t.Fine | currency: 'INR':true}}</td>
+                            <td><button class="btn btn-primary" (click) = renewBook(t)>Renew</button></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

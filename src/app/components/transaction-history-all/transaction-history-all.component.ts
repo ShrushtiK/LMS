@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-transaction-history-all',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionHistoryAllComponent implements OnInit {
 
-  constructor() { }
+  show_all_transactions : boolean = false
+  //all_transactions : [ {Title:string, Author:string, Due_Date:Date, Renew_Count:Number, Fine: Number} ] 
+  all_transactions : any = []
+
+  constructor(public transaction: TransactionService) { }
 
   ngOnInit() {
+  }
+
+  showAllTransactions()
+  {
+    this.show_all_transactions = true
+    this.transaction.getAllTransactions().subscribe(
+      res => {
+        this.all_transactions = res
+      },
+      err =>
+      {
+        alert(err.error)
+      }
+    )
   }
 
 }
