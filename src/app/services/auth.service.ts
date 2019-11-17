@@ -8,26 +8,28 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  public url = "http://127.0.0.1:9090/login";
+  public url = "http://127.0.0.1:9000/member/login";
   public url1 = "http://127.0.0.1:9090/api/logout";
+  public url2 = "http://127.0.0.1:9000/member/create";
 
   constructor(public httpClient: HttpClient, public router: Router) { }
 
   loginUsers(user) {
     return this.httpClient.post<any>(this.url, user);
   }
-
-  loggedIn() {
-    return !!localStorage.getItem('token') && !!localStorage.getItem('_user_name_');
-  }
-  getToken() {
-    return localStorage.getItem('token');
-  }
+  // loggedIn() {
+  //   return !!localStorage.getItem('token') && !!localStorage.getItem('_user_name_');
+  // }
+  // getToken() {
+  //   return localStorage.getItem('token');
+  // }
   logoutUser() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('_user_name_');
     this.router.navigate(['']);
     return this.httpClient.post<any>(this.url1, {});
+  }
+
+  registerUser(user) {
+    return this.httpClient.post<any>(this.url2, user);
 
   }
   verifyUser() {

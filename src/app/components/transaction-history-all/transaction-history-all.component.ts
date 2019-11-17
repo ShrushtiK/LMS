@@ -15,7 +15,8 @@ export class TransactionHistoryAllComponent implements OnInit {
   all_transactions: any = []
 
   constructor(public transaction: TransactionService, public memId: MemIdService) {
-    this.show_all_transactions = true
+    this.show_all_transactions = true;
+    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
     transaction.getAllTransactions(this.Mem_Id).subscribe(
       res => {
         this.all_transactions = res
@@ -27,7 +28,7 @@ export class TransactionHistoryAllComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
+
   }
 
   showAllTransactions() {

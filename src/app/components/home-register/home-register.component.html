@@ -1,1 +1,57 @@
-<p>home-register works!</p>
+<!-- Main content -->
+<div class="page-content">
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content d-flex justify-content-center align-items-center">
+
+            <!-- Login card -->
+            <form class="login-form" id="regForm">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input [(ngModel)]="username" name="username" type="username" class="form-control"
+                                placeholder="Username" required>
+                            <div class="form-control-feedback">
+                                <i class="icon-user text-muted"></i>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input [(ngModel)]="email" name="email" type="email" class="form-control"
+                                placeholder="Email-Id" required>
+                            <div class="form-control-feedback">
+                                <i class="icon-mention text-muted"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input [(ngModel)]="ph_no" name="ph_no" type="text" class="form-control"
+                                placeholder="Phone Number" required>
+                            <div class="form-control-feedback">
+                                <i class="icon-library2 text-muted"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-feedback form-group-feedback-left">
+                            <input [(ngModel)]="password" name="password" type="password" class="form-control"
+                                placeholder="Password" required>
+                            <div class="form-control-feedback">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" (click)="registerData()">Register</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <!-- /login card -->
+
+        </div>
+        <!-- /content area -->
+
+    </div>
+    <!-- /main content -->
+</div>
+<!-- /page content -->

@@ -18,7 +18,8 @@
 
                 </form>
                 <div *ngIf="error" class="card">
-                    <div style="padding: 20px; background-color:tomato;color: red;">No book found! Please, try again
+                    <div style="padding: 7px; background-color:tomato;color:white;font-size:20px;">No books found!
+                        Please, try again.
                     </div>
                 </div>
                 <div *ngIf="result">
@@ -32,20 +33,18 @@
                             <table class="table text-nowrap text-center">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Author</th>
-                                        <th scope="col">Available Date</th>
+                                        <th scope="col">Number of Copies</th>
                                         <th scope="col">Availability</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let t of data; let i=index" [attr.data-index="i" ]>
-                                        <th scope="row"></th>
+                                    <tr *ngFor="let t of data">
                                         <td>{{t.Title}}</td>
                                         <td>{{t.Author}}</td>
-                                        <td>{{t.Available_Date}}</td>
-                                        <td class="t.Status"></td>
+                                        <td>{{t.No_Copies_Available}}</td>
+                                        <td>{{t.Status}}</td>
                                     </tr>
                                 </tbody>
                             </table>

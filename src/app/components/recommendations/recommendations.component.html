@@ -1,1 +1,46 @@
-<p>recommendations works!</p>
+<div class="row" style="width:100%;">
+    <div class="col-xl-12">
+        <div class="card card-body border-top-primary">
+            <div class="text-center"><br />
+                <h2>Based on your previous issuances, we suggest you books you'll fancy! </h2><br />
+
+                <div *ngIf="result">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <table class="table text-nowrap text-center">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">Available Date</th>
+                                        <th scope="col">Availability</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let t of data; let i=index" [attr.data-index="i" ]>
+                                        <th scope="row"></th>
+                                        <td>{{t.Title}}</td>
+                                        <td>{{t.Author}}</td>
+                                        <td>{{t.Available_Date}}</td>
+                                        <td class="t.Status"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

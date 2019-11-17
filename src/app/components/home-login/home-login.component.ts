@@ -12,7 +12,6 @@ import { MemIdService } from '../../services/mem-id.service';
 export class HomeLoginComponent implements OnInit {
   loginData = {};
   email = "";
-  username = "";
   password = "";
   constructor(public auth: AuthService, public router: Router, public memId: MemIdService) { }
 
@@ -24,11 +23,18 @@ export class HomeLoginComponent implements OnInit {
     this.loginData["Password"] = this.password;
     this.auth.loginUsers(this.loginData).subscribe(
       res => {
-
-        this.memId.changeId(res['Membership_ID']);
-        this.router.navigate(['/dashboard']);
+        if (res['msg'] === "Success") {
+          console.log(res);
+          console.log(res['data']['Membership_ID']);
+          this.memId.changeId(res['data']['Membership_ID']);
+          this.router.navigate(['/dashboard']);
+        }
       },
-      err => console.log(err)
+      err => {
+        alert(err.error['data']);
+        this.email = "";
+        this.password = "";
+      }
     )
   }
 }
