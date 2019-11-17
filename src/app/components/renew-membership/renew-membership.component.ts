@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service'
-import { MembershipService } from '../../services/membership.service'
+//import { MembershipService } from '../../services/membership.service'
 
 @Component({
   selector: 'app-renew-membership',
@@ -14,9 +14,8 @@ export class RenewMembershipComponent implements OnInit {
   ngOnInit() {
   }
 
-  renewMembership()
-  {
-    
+  renewMembership() {
+
   }
 
 }

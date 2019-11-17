@@ -23,6 +23,7 @@ import { BookTitleAvailableComponent } from './components/book-title-available/b
 import { BookAuthorAvailableComponent } from './components/book-author-available/book-author-available.component';
 import { AuthService } from './services/auth.service';
 import { TransactionService } from './services/transaction.service';
+import { RecommendationsComponent } from './components/recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TransactionService } from './services/transaction.service';
     CancelMembershipComponent,
     GetMembershipDetailsComponent,
     BookTitleAvailableComponent,
-    BookAuthorAvailableComponent
+    BookAuthorAvailableComponent,
+    RecommendationsComponent
   ],
   imports: [
     BrowserModule,

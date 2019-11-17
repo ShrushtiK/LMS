@@ -1,13 +1,5 @@
 <div class="navbar navbar-expand-md" min-height=100vh style="background-color:#263238 ;">
 
-    <div>
-        <a href="/" class="d-inline-block">
-            <img src='../../assets/new_logo.png' style="object-fit: fill;position: relative;                 
-                width: 50px;
-                height: 50px;">
-        </a>
-    </div>
-
     <span class="badge bg-success ml-md-3 mr-md-auto" style="visibility:hidden;">& </span>
     <ul class="navbar-nav">
         <li class="nav-item dropdown dropdown-user">
@@ -35,29 +27,11 @@
         </div> -->
         <!-- /sidebar mobile toggler -->
 
+
+        <div class="text-center text-muted content-divider">
+        </div>
         <!-- Sidebar content -->
         <div class="sidebar-content">
-            <!-- User menu -->
-            <div class="sidebar-user">
-                <div class="card-body">
-                    <div class="media">
-                        <!-- <div class="mr-3">
-                            <img src="../../assets/placeholders/placeholder.jpg" width="38" height="38"
-                                class="rounded-circle" alt="">
-                        </div> -->
-                        <div class="media-body">
-                            <div class="media-title font-weight-semibold">Welcome {{user}}!</div><!-- {{UserId}} -->
-
-                        </div>
-                        <!-- <div class="ml-3 align-self-center">
-                            <a href="#" class="text-white"><i class="icon-cog3"></i></a>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <!-- /user menu -->
-
-
             <!-- Main navigation -->
             <div class="card card-sidebar-mobile">
                 <ul class="nav nav-sidebar" data-nav-type="accordion">
@@ -68,21 +42,48 @@
                         <div class="text-uppercase font-size-xs line-height-xs">MENU</div> <i class="icon-menu"
                             title="Main"></i>
                     </li>
+                    <li class="nav-item nav-item-submenu">
+                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span>Explore Books</span></a>
+                        <ul class="nav nav-group-sub" data-submenu-title='Explore Books'>
+                            <li class="nav-item"><a (click)='showMenuOption("by_title")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Explore By Title</span></a></li>
+                            <li class="nav-item"><a (click)='showMenuOption("by_author")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Explore By Author</span></a></li>
+                        </ul>
+
+                    </li>
 
 
                     <li class="nav-item nav-item-submenu">
-                        <a (click)="showMenuOption('dashboard')" class="nav-link"><i class="icon-color-sampler"></i>
-                            <span>Explore Books</span></a>
-
+                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span> Your Membership</span></a>
+                        <ul class="nav nav-group-sub" data-submenu-title='Membership Details'>
+                            <li class="nav-item"><a (click)='showMenuOption("details")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Get Details</span></a></li>
+                            <li class="nav-item"><a (click)='showMenuOption("renew")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Renew Membership</span></a></li>
+                            <li class="nav-item"><a (click)='showMenuOption("cancel")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Cancel Membership</span></a></li>
+                        </ul>
 
                     </li>
                     <li class="nav-item nav-item-submenu">
-                        <a (click)="showMenuOption('membership_details')" class="nav-link"><i class="icon-stack"></i> <span>
-                                Membership Details</span></a>
+                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span>Transaction
+                                History</span></a>
+                        <ul class="nav nav-group-sub" data-submenu-title='Transaction History'>
+                            <li class="nav-item"><a (click)='showMenuOption("all_trans")' class="nav-link"><i
+                                        class='icon-stack'></i><span>All Transactions</span></a></li>
+                            <li class="nav-item"><a (click)='showMenuOption("active_trans")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Active Transactions</span></a></li>
+                        </ul>
+
                     </li>
                     <li class="nav-item nav-item-submenu">
-                        <a (click)="showMenuOption('transaction_history')" class="nav-link"><i class="icon-stack"></i> <span>
-                                Transaction History</span></a>
+                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span>Recommendations</span></a>
+                        <ul class="nav nav-group-sub" data-submenu-title='Recommendations'>
+                            <li class="nav-item"><a (click)='showMenuOption("sugg")' class="nav-link"><i
+                                        class='icon-stack'></i><span>Get Suggestions</span></a></li>
+                        </ul>
+
                     </li>
                 </ul>
             </div>
@@ -90,20 +91,17 @@
 
         </div>
         <!-- /sidebar content -->
-
     </div>
     <!-- /main sidebar -->
     <!-- Main content -->
-    <app-get-membership-details *ngIf="show_membership_details"></app-get-membership-details>
-    
-    <app-transaction-history-all *ngIf="show_transaction_history"></app-transaction-history-all>
 
-    <div class="content-wrapper" *ngIf="show_dashboard">
+    <div class="content-wrapper">
         <!-- Page header -->
         <div class="page-header-content header-elements-md-inline">
             <div class="page-title d-flex">
                 <!--<h3>{{details[0].brandname}}</h3>-->
-                <h3> Don't know what tp put here</h3>
+                <h3> Welcome {{user}} !!</h3>
+
                 <!--{{MenuOption}}-->
                 <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
             </div>
@@ -115,7 +113,15 @@
         <!-- /page header -->
 
         <!-- Content area -->
-        <div class="content">
+        <app-book-author-available *ngIf="by_author"></app-book-author-available>
+        <app-book-title-available *ngIf="by_title"></app-book-title-available>
+        <app-get-membership-details *ngIf="details"></app-get-membership-details>
+        <app-renew-membership *ngIf="renew"></app-renew-membership>
+        <app-cancel-membership *ngIf="cancel"></app-cancel-membership>
+        <app-transaction-history-all *ngIf="all_trans"></app-transaction-history-all>
+        <app-transaction-history-active *ngIf="active_trans"></app-transaction-history-active>
+        <app-recommendations *ngIf="sugg"></app-recommendations>
+        <div class="content" *ngIf="bleh_home">
             <div class="row">
                 <div class="col-xl-4">
                     <div class="card" min-height="500px">
@@ -167,5 +173,3 @@
         </div>
     </div>
 </div>
-
-    
