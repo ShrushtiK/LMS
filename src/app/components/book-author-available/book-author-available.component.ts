@@ -25,14 +25,20 @@ export class BookAuthorAvailableComponent implements OnInit {
         }
         else {
           this.data = res['data'];
-          let ele1 = document.getElementsByClassName('true');
-          let ele2 = document.getElementsByClassName('false');
-          // for(var i=0;i<ele1.length;i++){
-          //   ele1[i].style.color='red';
-
-          // }
           this.error = false;
           this.result = true;
+          var ele1 = document.getElementsByClassName('true');
+          if (ele1.length > 0) {
+            for (var i = 0; i < ele1.length; i++) {
+              ele1[i].textContent = 'Available';
+            }
+          }
+          var ele2 = document.getElementsByClassName('false');
+          if (ele2.length > 0) {
+            for (var i = 0; i < ele1.length; i++) {
+              ele2[i].textContent = 'Unavailable';
+            }
+          }
         }
       });
 
