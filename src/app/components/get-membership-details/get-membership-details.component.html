@@ -40,9 +40,9 @@
                     </tr>
                 </table>
                 <div style="margin: 0 auto;">
-                    <app-renew-membership class="center"></app-renew-membership>
+                    <app-renew-membership (updateEndDate)="onUpdateEndDate($event)" (failedRenewal)="onFailedRenewal($event)"></app-renew-membership>
                     <br/><br/>
-                    <app-cancel-membership></app-cancel-membership>
+                    <app-cancel-membership (failedCancellation)="onFailedCancellation($event)"></app-cancel-membership>
                 </div>
                 
             </div>

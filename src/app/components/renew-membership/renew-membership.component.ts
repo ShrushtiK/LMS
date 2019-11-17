@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MembershipService } from '../../services/membership.service';
@@ -11,6 +11,10 @@ import { MemIdService } from '../../services/mem-id.service';
 })
 export class RenewMembershipComponent implements OnInit {
   Mem_Id: string;
+
+  @Output() updateEndDate = new EventEmitter<Date>()
+  @Output() failedRenewal = new EventEmitter<any>()
+
   constructor(public membershipService: MembershipService, public router: Router, public memId: MemIdService) { }
 
   ngOnInit() {
@@ -20,10 +24,12 @@ export class RenewMembershipComponent implements OnInit {
   renewMembership() {
     this.membershipService.renewMembership(this.Mem_Id).subscribe(
       res => {
-        alert("Membership renewed successfully")
+        console.log("Membership renewed successfully")
+        this.updateEndDate.emit(res.body.data.End_Date)
       },
       err => {
-        alert(err.error)
+        console.log(err.error)
+        this.failedRenewal.emit(err.error.data)
       }
     )
   }
