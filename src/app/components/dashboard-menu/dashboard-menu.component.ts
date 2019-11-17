@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-dashboard-menu',
   templateUrl: './dashboard-menu.component.html',
@@ -7,35 +8,120 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardMenuComponent implements OnInit {
 
-  show_dashboard : boolean = false
-  show_membership_details : boolean = false
-  show_transaction_history : boolean = false
-
+  by_author: boolean = false;
+  by_title: boolean = false;
+  details: boolean = false;
+  renew: boolean = false;
+  cancel: boolean = false;
+  all_trans: boolean = false;
+  active_trans: boolean = false;
+  bleh_home: boolean = false;
+  sugg: boolean = false;
   constructor() { }
 
   ngOnInit() {
+    this.bleh_home = true;
   }
 
-  showMenuOption(option){
-    if(option == 'dashboard')
-    {
-      this.show_dashboard = true
-      this.show_membership_details = false
-      this.show_transaction_history = false
-    }  
-    else if(option == 'membership_details')
-    {
-      this.show_membership_details = true
-      this.show_dashboard = false
-      this.show_transaction_history = false
+  showMenuOption(option) {
+    if (option === 'by_author') {
+      this.by_author = true;
+      this.by_title = false;
+      this.details = false;
+      this.renew = false;
+      this.cancel = false;
+      this.all_trans = false;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = false;
     }
-    else if(option == 'transaction_history')
-    {
-      this.show_transaction_history = true
-      this.show_membership_details = false
-      this.show_dashboard = false
+    if (option === 'by_title') {
+      this.by_author = false;
+      this.by_title = true;
+      this.details = false;
+      this.renew = false;
+      this.cancel = false;
+      this.all_trans = false;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = false;
     }
+    if (option === 'details') {
+      this.by_author = false;
+      this.by_title = false;
+      this.details = true;
+      this.renew = false;
+      this.cancel = false;
+      this.all_trans = false;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = false;
+    }
+    if (option === 'renew') {
+      this.by_author = false;
+      this.by_title = false;
+      this.details = false;
+      this.renew = true;
+      this.cancel = false;
+      this.all_trans = false;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = false;
+    }
+    if (option === 'cancel') {
+      this.by_author = false;
+      this.by_title = false;
+      this.details = false;
+      this.renew = false;
+      this.cancel = true;
+      this.all_trans = false;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = false;
+    }
+    if (option === 'all_trans') {
+      this.by_author = false;
+      this.by_title = false;
+      this.details = false;
+      this.renew = false;
+      this.cancel = false;
+      this.all_trans = true;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = false;
+    }
+    if (option === 'active_trans') {
+      this.by_author = false;
+      this.by_title = false;
+      this.details = false;
+      this.renew = false;
+      this.cancel = false;
+      this.all_trans = false;
+      this.active_trans = true;
+      this.bleh_home = false;
+      this.sugg = false;
+    }
+    if (option === 'sugg') {
+      this.by_author = false;
+      this.by_title = false;
+      this.details = false;
+      this.renew = false;
+      this.cancel = false;
+      this.all_trans = false;
+      this.active_trans = false;
+      this.bleh_home = false;
+      this.sugg = true;
+    }
+
+
+
+
+
+
+
 
   }
 
 }
+
+
