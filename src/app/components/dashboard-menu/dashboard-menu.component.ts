@@ -11,8 +11,6 @@ export class DashboardMenuComponent implements OnInit {
   by_author: boolean = false;
   by_title: boolean = false;
   details: boolean = false;
-  renew: boolean = false;
-  cancel: boolean = false;
   all_trans: boolean = false;
   active_trans: boolean = false;
   bleh_home: boolean = false;
@@ -28,8 +26,6 @@ export class DashboardMenuComponent implements OnInit {
       this.by_author = true;
       this.by_title = false;
       this.details = false;
-      this.renew = false;
-      this.cancel = false;
       this.all_trans = false;
       this.active_trans = false;
       this.bleh_home = false;
@@ -39,8 +35,6 @@ export class DashboardMenuComponent implements OnInit {
       this.by_author = false;
       this.by_title = true;
       this.details = false;
-      this.renew = false;
-      this.cancel = false;
       this.all_trans = false;
       this.active_trans = false;
       this.bleh_home = false;
@@ -50,41 +44,16 @@ export class DashboardMenuComponent implements OnInit {
       this.by_author = false;
       this.by_title = false;
       this.details = true;
-      this.renew = false;
-      this.cancel = false;
       this.all_trans = false;
       this.active_trans = false;
       this.bleh_home = false;
       this.sugg = false;
     }
-    if (option === 'renew') {
-      this.by_author = false;
-      this.by_title = false;
-      this.details = false;
-      this.renew = true;
-      this.cancel = false;
-      this.all_trans = false;
-      this.active_trans = false;
-      this.bleh_home = false;
-      this.sugg = false;
-    }
-    if (option === 'cancel') {
-      this.by_author = false;
-      this.by_title = false;
-      this.details = false;
-      this.renew = false;
-      this.cancel = true;
-      this.all_trans = false;
-      this.active_trans = false;
-      this.bleh_home = false;
-      this.sugg = false;
-    }
+
     if (option === 'all_trans') {
       this.by_author = false;
       this.by_title = false;
       this.details = false;
-      this.renew = false;
-      this.cancel = false;
       this.all_trans = true;
       this.active_trans = false;
       this.bleh_home = false;
@@ -94,8 +63,6 @@ export class DashboardMenuComponent implements OnInit {
       this.by_author = false;
       this.by_title = false;
       this.details = false;
-      this.renew = false;
-      this.cancel = false;
       this.all_trans = false;
       this.active_trans = true;
       this.bleh_home = false;
@@ -105,8 +72,6 @@ export class DashboardMenuComponent implements OnInit {
       this.by_author = false;
       this.by_title = false;
       this.details = false;
-      this.renew = false;
-      this.cancel = false;
       this.all_trans = false;
       this.active_trans = false;
       this.bleh_home = false;

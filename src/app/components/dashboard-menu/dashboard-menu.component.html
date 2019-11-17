@@ -59,10 +59,6 @@
                         <ul class="nav nav-group-sub" data-submenu-title='Membership Details'>
                             <li class="nav-item"><a (click)='showMenuOption("details")' class="nav-link"><i
                                         class='icon-stack'></i><span>Get Details</span></a></li>
-                            <li class="nav-item"><a (click)='showMenuOption("renew")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Renew Membership</span></a></li>
-                            <li class="nav-item"><a (click)='showMenuOption("cancel")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Cancel Membership</span></a></li>
                         </ul>
 
                     </li>
@@ -116,8 +112,6 @@
         <app-book-author-available *ngIf="by_author"></app-book-author-available>
         <app-book-title-available *ngIf="by_title"></app-book-title-available>
         <app-get-membership-details *ngIf="details"></app-get-membership-details>
-        <app-renew-membership *ngIf="renew"></app-renew-membership>
-        <app-cancel-membership *ngIf="cancel"></app-cancel-membership>
         <app-transaction-history-all *ngIf="all_trans"></app-transaction-history-all>
         <app-transaction-history-active *ngIf="active_trans"></app-transaction-history-active>
         <app-recommendations *ngIf="sugg"></app-recommendations>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MembershipService } from '../../services/membership.service'
+import { MembershipService } from '../../services/membership.service';
+import { MemIdService } from '../../services/mem-id.service';
 
 @Component({
   selector: 'app-get-membership-details',
@@ -8,10 +9,10 @@ import { MembershipService } from '../../services/membership.service'
   styleUrls: ['./get-membership-details.component.css']
 })
 export class GetMembershipDetailsComponent implements OnInit {
-
-  member : any = {}
-  constructor( public membershipService : MembershipService ) { 
-    membershipService.memberDetails().subscribe(
+  Mem_Id: string;
+  member: any = {}
+  constructor(public membershipService: MembershipService, public memId: MemIdService) {
+    membershipService.memberDetails(this.Mem_Id).subscribe(
       res => {
         this.member = res;
       },
@@ -23,6 +24,7 @@ export class GetMembershipDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MemIdService } from '../../services/mem-id.service';
 
 @Component({
   selector: 'app-home-login',
@@ -13,7 +14,7 @@ export class HomeLoginComponent implements OnInit {
   email = "";
   username = "";
   password = "";
-  constructor(public auth: AuthService, public router: Router) { }
+  constructor(public auth: AuthService, public router: Router, public memId: MemIdService) { }
 
   ngOnInit() {
   }
@@ -23,8 +24,8 @@ export class HomeLoginComponent implements OnInit {
     this.loginData["Password"] = this.password;
     this.auth.loginUsers(this.loginData).subscribe(
       res => {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('_user_name_', res.user_name);
+
+        this.memId.changeId(res['Membership_ID']);
         this.router.navigate(['/dashboard']);
       },
       err => console.log(err)
