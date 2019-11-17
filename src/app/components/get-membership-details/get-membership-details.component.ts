@@ -12,6 +12,8 @@ export class GetMembershipDetailsComponent implements OnInit {
   Mem_Id: string;
   member: any = {}
   constructor(public membershipService: MembershipService, public memId: MemIdService) {
+    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
+    console.log(this.Mem_Id);
     membershipService.memberDetails(this.Mem_Id).subscribe(
       res => {
         this.member = res;
@@ -24,7 +26,8 @@ export class GetMembershipDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
+
+
   }
 
 }

@@ -12,6 +12,7 @@ export class TransactionHistoryActiveComponent implements OnInit {
   //all_transactions : [ {Title:string, Author:string, Due_Date:Date, Renew_Count:Number, Fine: Number} ] 
   active_transactions: any = []
   constructor(public transaction: TransactionService, public memId: MemIdService) {
+    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
     transaction.getActiveTransactions(this.Mem_Id).subscribe(
       res => {
         this.active_transactions = res
@@ -24,7 +25,7 @@ export class TransactionHistoryActiveComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
+
   }
 
   renewBook(transaction: any) {

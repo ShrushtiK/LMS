@@ -35,52 +35,57 @@
             <!-- Main navigation -->
             <div class="card card-sidebar-mobile">
                 <ul class="nav nav-sidebar" data-nav-type="accordion">
-
                     <!-- Main 
                             <li class="nav-item"><a href="dimple_pies.html" class="nav-link">Pie charts</a></li>-->
+                    <br />
                     <li class="nav-item-header">
-                        <div class="text-uppercase font-size-xs line-height-xs">MENU</div> <i class="icon-menu"
+                        <div class="text-uppercase font-size-xs line-height-xs">EXPLORE BOOKS</div> <i class="icon-menu"
                             title="Main"></i>
                     </li>
-                    <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span>Explore Books</span></a>
-                        <ul class="nav nav-group-sub" data-submenu-title='Explore Books'>
-                            <li class="nav-item"><a (click)='showMenuOption("by_title")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Explore By Title</span></a></li>
-                            <li class="nav-item"><a (click)='showMenuOption("by_author")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Explore By Author</span></a></li>
-                        </ul>
+                    <ul class="nav-item nav-item-submenu">
 
+                        <li class="nav-item"><a (click)='showMenuOption("by_title")' class="nav-link"><i
+                                    class='icon-stack'></i><span>Explore By Title</span></a></li>
+                        <li class="nav-item"><a (click)='showMenuOption("by_author")' class="nav-link"><i
+                                    class='icon-stack'></i><span>Explore By Author</span></a></li>
+
+
+                    </ul>
+                    <li class="nav-item-header">
+                        <div class="text-uppercase font-size-xs line-height-xs">YOUR MEMBERSHIP DETAILS</div> <i
+                            class="icon-menu" title="Main"></i>
                     </li>
 
+                    <ul class="nav-item nav-item-submenu">
 
-                    <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span> Your Membership</span></a>
-                        <ul class="nav nav-group-sub" data-submenu-title='Membership Details'>
-                            <li class="nav-item"><a (click)='showMenuOption("details")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Get Details</span></a></li>
-                        </ul>
+                        <li class="nav-item"><a (click)='showMenuOption("details")' class="nav-link"><i
+                                    class='icon-stack'></i><span>Get Membership Details</span></a></li>
 
+
+                    </ul>
+                    <li class="nav-item-header">
+                        <div class="text-uppercase font-size-xs line-height-xs">TRANSACTION HISTORY</div> <i
+                            class="icon-menu" title="Main"></i>
                     </li>
-                    <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span>Transaction
-                                History</span></a>
-                        <ul class="nav nav-group-sub" data-submenu-title='Transaction History'>
-                            <li class="nav-item"><a (click)='showMenuOption("all_trans")' class="nav-link"><i
-                                        class='icon-stack'></i><span>All Transactions</span></a></li>
-                            <li class="nav-item"><a (click)='showMenuOption("active_trans")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Active Transactions</span></a></li>
-                        </ul>
+                    <ul class="nav-item nav-item-submenu">
 
-                    </li>
-                    <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-color-sampler"></i><span>Recommendations</span></a>
-                        <ul class="nav nav-group-sub" data-submenu-title='Recommendations'>
-                            <li class="nav-item"><a (click)='showMenuOption("sugg")' class="nav-link"><i
-                                        class='icon-stack'></i><span>Get Suggestions</span></a></li>
-                        </ul>
+                        <li class="nav-item"><a (click)='showMenuOption("all_trans")' class="nav-link"><i
+                                    class='icon-stack'></i><span>All Transactions</span></a></li>
+                        <li class="nav-item"><a (click)='showMenuOption("active_trans")' class="nav-link"><i
+                                    class='icon-stack'></i><span>Active Transactions</span></a></li>
 
+
+                    </ul>
+                    <li class="nav-item-header">
+                        <div class="text-uppercase font-size-xs line-height-xs">RECOMMENDATIONS</div> <i
+                            class="icon-menu" title="Main"></i>
                     </li>
+                    <ul class="nav-item nav-item-submenu">
+                        <li class="nav-item"><a (click)='showMenuOption("sugg")' class="nav-link"><i
+                                    class='icon-stack'></i><span>Get Recommendations</span></a></li>
+
+
+                    </ul>
                 </ul>
             </div>
             <!-- /main navigation -->
