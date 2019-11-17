@@ -27,7 +27,23 @@ export class GetMembershipDetailsComponent implements OnInit {
 
   ngOnInit() {
 
+  }
 
+  onUpdateEndDate(date : Date)
+  {
+    console.log("New Date = ", date)
+    this.member.End_Date = date
+  }
+
+  onFailedRenewal(msg : any)
+  {
+    alert("Renewal failed: "+msg)
+  }
+
+  onFailedCancellation(msg : any)
+  {
+    alert("Cancellation failed: "+msg)
+    console.log(msg)
   }
 
 }

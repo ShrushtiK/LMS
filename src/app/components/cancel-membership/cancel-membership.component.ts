@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MembershipService } from '../../services/membership.service';
@@ -13,6 +13,9 @@ import { MemIdService } from '../../services/mem-id.service';
 })
 export class CancelMembershipComponent implements OnInit {
   Mem_Id: string;
+
+  @Output() failedCancellation = new EventEmitter<any>()
+  
   constructor(public membershipService: MembershipService, public authService: AuthService, public router: Router, public memId: MemIdService) { }
 
   ngOnInit() {
@@ -22,11 +25,10 @@ export class CancelMembershipComponent implements OnInit {
   cancelMembership() {
     this.membershipService.cancelMembership(this.Mem_Id).subscribe(
       res => {
-        alert("Membership cancelled successfully")
         this.authService.logoutUser()
       },
       err => {
-        alert(err.error)
+        this.failedCancellation.emit(err.error.data)
       }
     )
   }

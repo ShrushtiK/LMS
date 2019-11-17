@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs'
+import { debounceTime } from 'rxjs/operators'
 
 @Component({
   selector: 'app-book-title-available',
@@ -11,9 +13,22 @@ export class BookTitleAvailableComponent implements OnInit {
   public error: boolean = false;
   public result: boolean = false;
   public data: any = [];
+  subject :Subject<any> = new Subject()
+
   constructor() { }
+  
   ngOnInit() {
+    this.subject
+    .pipe(debounceTime(500))
+    .subscribe(() => {this.getSearchResults()})
   }
+
+  onKeyUp()
+  {
+    console.log("Key up")
+    this.subject.next()
+  }
+
   getSearchResults() {
     return fetch(`${this.url}?Title=${this.inputparam}`)
       .then(res => res.json())

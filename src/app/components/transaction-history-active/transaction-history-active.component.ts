@@ -31,7 +31,7 @@ export class TransactionHistoryActiveComponent implements OnInit {
   renewBook(transaction: any) {
     this.transaction.renewTransaction(transaction._id).subscribe(
       res => {
-        transaction.Due_Date = res.body.Due_Date
+        transaction.Due_Date = res.body.data.Due_Date
         transaction.Renew_Count += 1
         alert("Successfully renewed")
       },
