@@ -5,7 +5,7 @@
                 <h2>Search By Author</h2><br />
                 <form class="suggest-form" ngNativeValidate>
                     <div class="form-group form-group-feedback form-group-feedback-left">
-                        <input [(ngModel)]="inputparam" name="inputparam" type="text" class="form-control"
+                        <input (keyup)="onKeyUp()" [(ngModel)]="inputparam" name="inputparam" type="text" class="form-control"
                             placeholder="Write your query here" required>
                         <div class="form-control-feedback">
                             <i class="icon-pencil7 text-muted"></i>
