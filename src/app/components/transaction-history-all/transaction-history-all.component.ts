@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../../services/transaction.service';
+import { MemIdService } from '../../services/mem-id.service';
+
 
 @Component({
   selector: 'app-transaction-history-all',
@@ -7,30 +9,29 @@ import { TransactionService } from '../../services/transaction.service';
   styleUrls: ['./transaction-history-all.component.css']
 })
 export class TransactionHistoryAllComponent implements OnInit {
-
-  show_all_transactions : boolean = false
+  Mem_Id: string;
+  show_all_transactions: boolean = false
   //all_transactions : [ {Title:string, Author:string, Due_Date:Date, Renew_Count:Number, Fine: Number} ] 
-  all_transactions : any = []
+  all_transactions: any = []
 
-  constructor(public transaction: TransactionService) { 
+  constructor(public transaction: TransactionService, public memId: MemIdService) {
     this.show_all_transactions = true
-    transaction.getAllTransactions().subscribe(
+    transaction.getAllTransactions(this.Mem_Id).subscribe(
       res => {
         this.all_transactions = res
       },
-      err =>
-      {
+      err => {
         alert(err.error)
       }
     )
   }
 
   ngOnInit() {
+    this.memId.currMemId.subscribe(id => this.Mem_Id = id);
   }
 
-  showAllTransactions()
-  {
-    
+  showAllTransactions() {
+
   }
 
 }
