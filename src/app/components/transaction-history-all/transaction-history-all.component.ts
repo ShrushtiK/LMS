@@ -12,15 +12,9 @@ export class TransactionHistoryAllComponent implements OnInit {
   //all_transactions : [ {Title:string, Author:string, Due_Date:Date, Renew_Count:Number, Fine: Number} ] 
   all_transactions : any = []
 
-  constructor(public transaction: TransactionService) { }
-
-  ngOnInit() {
-  }
-
-  showAllTransactions()
-  {
+  constructor(public transaction: TransactionService) { 
     this.show_all_transactions = true
-    this.transaction.getAllTransactions().subscribe(
+    transaction.getAllTransactions().subscribe(
       res => {
         this.all_transactions = res
       },
@@ -29,6 +23,14 @@ export class TransactionHistoryAllComponent implements OnInit {
         alert(err.error)
       }
     )
+  }
+
+  ngOnInit() {
+  }
+
+  showAllTransactions()
+  {
+    
   }
 
 }

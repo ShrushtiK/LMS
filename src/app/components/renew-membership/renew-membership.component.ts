@@ -24,5 +24,6 @@ export class RenewMembershipComponent implements OnInit {
       err => {
         alert(err.error)
       }
-    )    
+    )
+  }    
 }
