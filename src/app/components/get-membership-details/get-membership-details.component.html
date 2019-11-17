@@ -1,1 +1,52 @@
-<p>get-membership-details works!</p>
+<div class="content">
+    <div>
+        <div class="card">
+            <div class="card-header header-elements-intdne">
+                <h4 class="card-title">Membership Details</h4>
+            </div>
+            <div class="card-body">
+                <table class="table text-nowrap text-center">
+                    <tr>
+                        <td>Name</td>
+                        <td>{{member.Name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email ID</td>
+                        <td>{{member.Email_ID}}</td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>{{member.Password}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{member.Phone_Number}}</td>
+                    </tr>
+                    <tr>
+                        <td>Membership Start Date</td>
+                        <td>{{member.Start_Date | date}}</td>
+                    </tr>
+                    <tr>
+                        <td>Membership Expiry Date</td>
+                        <td>{{member.End_Date | date}}</td>
+                    </tr>
+                    <tr>
+                        <td># Currently Issued Books</td>
+                        <td>{{member.No_Issued_Books}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div style="margin: 0 auto;">
+                    <app-renew-membership class="center"></app-renew-membership>
+                    <br/><br/>
+                    <app-cancel-membership></app-cancel-membership>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+

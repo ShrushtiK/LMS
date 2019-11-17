@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service'
-//import { MembershipService } from '../../services/membership.service'
+import { Router } from '@angular/router';
+
+import { MembershipService } from '../../services/membership.service'
 
 @Component({
   selector: 'app-renew-membership',
@@ -9,13 +10,19 @@ import { AuthService } from '../../services/auth.service'
 })
 export class RenewMembershipComponent implements OnInit {
 
-  constructor() { }
+  constructor( public membershipService : MembershipService, public router: Router ) { }
 
   ngOnInit() {
   }
 
-  renewMembership() {
-
-  }
-
+  renewMembership()
+  {
+    this.membershipService.renewMembership().subscribe(
+      res => {
+        alert("Membership renewed successfully")
+      },
+      err => {
+        alert(err.error)
+      }
+    )    
 }
