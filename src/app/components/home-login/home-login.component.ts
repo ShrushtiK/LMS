@@ -26,6 +26,7 @@ export class HomeLoginComponent implements OnInit {
         if (res['msg'] === "Success") {
           console.log(res);
           console.log(res['data']['Membership_ID']);
+          sessionStorage.setItem('_x_', res['data']['Membership_ID']);
           this.memId.changeId(res['data']['Membership_ID']);
           this.router.navigate(['/dashboard']);
         }

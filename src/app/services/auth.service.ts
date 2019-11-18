@@ -17,17 +17,18 @@ export class AuthService {
   loginUsers(user) {
     return this.httpClient.post<any>(this.url, user);
   }
-  // loggedIn() {
-  //   return !!localStorage.getItem('token') && !!localStorage.getItem('_user_name_');
-  // }
+  loggedIn() {
+    return !!sessionStorage.getItem('_x_');
+    //return true;
+  }
   // getToken() {
   //   return localStorage.getItem('token');
   // }
   logoutUser() {
+    sessionStorage.removeItem('_x_');
     this.router.navigate(['']);
-    return this.httpClient.post<any>(this.url1, {});
+    //return this.httpClient.post<any>(this.url1, {});
   }
-
   registerUser(user) {
     return this.httpClient.post<any>(this.url2, user);
 

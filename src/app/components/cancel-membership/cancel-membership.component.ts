@@ -15,7 +15,7 @@ export class CancelMembershipComponent implements OnInit {
   Mem_Id: string;
 
   @Output() failedCancellation = new EventEmitter<any>()
-  
+
   constructor(public membershipService: MembershipService, public authService: AuthService, public router: Router, public memId: MemIdService) { }
 
   ngOnInit() {

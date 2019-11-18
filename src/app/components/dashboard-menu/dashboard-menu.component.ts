@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class DashboardMenuComponent implements OnInit {
   active_trans: boolean = false;
   bleh_home: boolean = false;
   sugg: boolean = false;
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
     this.bleh_home = true;
