@@ -29,6 +29,19 @@ export class BookAuthorAvailableComponent implements OnInit {
     this.subject.next()
   }
 
+  getAvailability(book: any)
+  {
+    console.log(book)
+    if(book.Status==true)
+      return "Available Now"
+    else
+    {
+      let d = new Date(book.Available_Date)
+      d.setDate(d.getDate() + 1)
+      return "Available from " + d.toDateString()
+    }
+  }
+
   getSearchResults() {
     return fetch(`${this.url}?Author=${this.inputparam}`)
       .then(res => res.json())

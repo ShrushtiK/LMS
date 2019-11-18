@@ -36,16 +36,16 @@
                                 <tr>
                                     <th scope="col">Title</th>
                                     <th scope="col">Author</th>
-                                    <th scope="col">Number of Copies</th>
                                     <th scope="col">Availability</th>
+                                    <th scope="col">Location</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let t of data">
                                     <td>{{t.Title}}</td>
                                     <td>{{t.Author}}</td>
-                                    <td>{{t.No_Copies_Available}}</td>
-                                    <td>{{t.Status}}</td>
+                                    <td>{{getAvailability(t)}}</td>
+                                    <td>{{t.Location}}</td>
                                 </tr>
                             </tbody>
                         </table>
