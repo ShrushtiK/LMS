@@ -11,7 +11,7 @@ export class DashboardMenuComponent implements OnInit {
 
   by_author: boolean = false;
   by_title: boolean = false;
-  details: boolean = false;
+  details: boolean = true;
   all_trans: boolean = false;
   active_trans: boolean = false;
   bleh_home: boolean = false;
@@ -19,7 +19,7 @@ export class DashboardMenuComponent implements OnInit {
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
-    this.bleh_home = true;
+    this.bleh_home = false;
   }
 
   showMenuOption(option) {
