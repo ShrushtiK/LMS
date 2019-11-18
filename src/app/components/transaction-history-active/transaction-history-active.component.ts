@@ -36,7 +36,7 @@ export class TransactionHistoryActiveComponent implements OnInit {
         alert("Successfully renewed")
       },
       err => {
-        alert(err.error)
+        alert(err.error.data)
       }
     )
   }

@@ -1,6 +1,6 @@
 <div class="row" style="width:100%;">
     <div class="col-xl-12">
-        <div class="card card-body border-top-primary">
+        <div class="card card-body" style="left: 10px;">
             <div class="text-center"><br />
                 <h2>Search By Author</h2><br />
                 <form class="suggest-form" ngNativeValidate>
@@ -34,16 +34,16 @@
                                     <tr>
                                         <th scope="col">Title</th>
                                         <th scope="col">Author</th>
-                                        <th scope="col">Number of Copies</th>
                                         <th scope="col">Availability</th>
+                                        <th scope="col">Location</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let t of data">
                                         <td>{{t.Title}}</td>
                                         <td>{{t.Author}}</td>
-                                        <td>{{t.No_Copies_Available}}</td>
-                                        <td>{{t.Status}}</td>
+                                        <td>{{getAvailability(t)}}</td>
+                                        <td>{{t.Location}}</td>
                                     </tr>
                                 </tbody>
                             </table>
