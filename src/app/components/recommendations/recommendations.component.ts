@@ -144,7 +144,19 @@ export class RecommendationsComponent implements OnInit
 		return array.filter(obj => !lookup.has(obj[key]) && lookup.add(obj[key]));
 	}
 
-
+	
+	getAvailability(book: any)
+	{
+	  console.log(book)
+	  if(book.Status==true)
+		return "Available Now"
+	  else
+	  {
+		let d = new Date(book.Available_Date)
+		d.setDate(d.getDate() + 1)
+		return "Available from " + d.toDateString()
+	  }
+	}
 
 	ngOnInit()
 	{
