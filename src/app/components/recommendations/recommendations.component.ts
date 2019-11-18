@@ -165,6 +165,10 @@ export class RecommendationsComponent implements OnInit
 			res =>
 			{
 				//console.log(res);
+				if( res == null )
+				{
+					this.no_books = true;
+				}
 				if (res.length == 0)
 				{
 					this.no_books = true;

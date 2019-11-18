@@ -8,7 +8,13 @@
 
                     <div class="card">
 
-                        <div class="card-body">
+                            <div *ngIf="no_books" class="card">
+                                <div style="padding: 7px; background-color:tomato;color:white;font-size:20px;">No books found!
+                                    Please, try again.
+                                </div>
+                            </div>
+
+                        <div class="card-body" *ngIf = "!no_books">
                             <table class="table text-nowrap text-center">
                                 <thead class="thead-dark">
                                     <tr>
