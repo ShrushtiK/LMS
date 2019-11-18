@@ -20,8 +20,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let t of active_transactions">
-                            <th scope="row">1</th>
+                          <tr *ngFor="let t of active_transactions; index as i">
+                            <th scope="row">{{i+1}}</th>
                             <td>{{t.Title}}</td>
                             <td>{{t.Author}}</td>
                             <td>{{t.Due_Date | date}}</td>
