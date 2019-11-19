@@ -18,15 +18,18 @@
                         <div class="card-body" *ngIf="!no_books">
                             <table class="table text-nowrap text-center">
                                 <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Title</th>
-                                        <!-- <th scope="col">Author</th> -->
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Availability</th>
+                                    <th scope="col">Location</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let t of data">
-                                        <!-- <td>{{t[0]}}</td>
-                                        <td>{{t[1]}}</td> -->
+                                        <td>{{t.Title}}</td>
+                                        <td>{{t.Author}}</td>
+                                        <td>{{getAvailability(t)}}</td>
+                                        <td>{{t.Location}}</td>
                                     </tr>
                                 </tbody>
                             </table>
