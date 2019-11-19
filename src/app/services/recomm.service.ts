@@ -10,8 +10,9 @@ export class RecommService {
   url = 'http://127.0.0.1:9000/book/recommendations'
   url1 = 'http://127.0.0.1:9000/book/searchByID'
 
-  getRecommendations(id) {
-    let params = new HttpParams().set('Book_ID', id);
+  getRecommendations(all_titles) {
+    var titles_str = JSON.stringify(all_titles);
+    let params = new HttpParams().set('Titles', titles_str);
     return this.httpClient.get<any>(this.url, { params: params });
   }
   getRecommDetails(id) {

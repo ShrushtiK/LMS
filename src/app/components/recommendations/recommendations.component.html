@@ -8,28 +8,25 @@
 
                     <div class="card">
 
-                            <div *ngIf="no_books" class="card">
-                                <div style="padding: 7px; background-color:tomato;color:white;font-size:20px;">No books found!
-                                    Please, try again.
-                                </div>
+                        <div *ngIf="no_books" class="card">
+                            <div style="padding: 7px; background-color:tomato;color:white;font-size:20px;">No books
+                                found!
+                                Please, try again.
                             </div>
+                        </div>
 
-                        <div class="card-body" *ngIf = "!no_books">
+                        <div class="card-body" *ngIf="!no_books">
                             <table class="table text-nowrap text-center">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Title</th>
-                                        <th scope="col">Author</th>
-                                        <th scope="col">Availability</th>
-                                        <th scope="col">Location</th>
+                                        <!-- <th scope="col">Author</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let t of data">
-                                        <td>{{t.Title}}</td>
-                                        <td>{{t.Author}}</td>
-                                        <td>{{getAvailability(t)}}</td>
-                                        <td>{{t.Location}}</td>
+                                        <!-- <td>{{t[0]}}</td>
+                                        <td>{{t[1]}}</td> -->
                                     </tr>
                                 </tbody>
                             </table>
