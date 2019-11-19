@@ -11,6 +11,9 @@ export class TransactionHistoryActiveComponent implements OnInit {
   Mem_Id: string;
   //all_transactions : [ {Title:string, Author:string, Due_Date:Date, Renew_Count:Number, Fine: Number} ] 
   active_transactions: any = []
+  modal_title: string;
+  modal_message: any;
+
   constructor(public transaction: TransactionService, public memId: MemIdService) {
     this.memId.currMemId.subscribe(id => this.Mem_Id = id);
     transaction.getActiveTransactions(this.Mem_Id).subscribe(
@@ -33,10 +36,16 @@ export class TransactionHistoryActiveComponent implements OnInit {
       res => {
         transaction.Due_Date = res.body.data.Due_Date
         transaction.Renew_Count += 1
-        alert("Successfully renewed")
+        this.modal_title = "Success!"
+        this.modal_message = "Your book has been renewed successfully."
+        $("#exampleModal").modal('show')
+        //alert("Successfully renewed")
       },
       err => {
-        alert(err.error.data)
+        this.modal_title = "Sorry!"
+        this.modal_message = err.error.data;
+        $("#exampleModal").modal('show')
+        //alert(err.error.data)
       }
     )
   }

@@ -11,6 +11,9 @@ import { MemIdService } from '../../services/mem-id.service';
 export class GetMembershipDetailsComponent implements OnInit {
   Mem_Id: string;
   member: any = {}
+  modal_title: string;
+  modal_message: any;
+
   constructor(public membershipService: MembershipService, public memId: MemIdService) {
     this.memId.currMemId.subscribe(id => this.Mem_Id = id);
     console.log(this.Mem_Id);
@@ -31,19 +34,27 @@ export class GetMembershipDetailsComponent implements OnInit {
 
   onUpdateEndDate(date : Date)
   {
+    this.modal_title = "Success!"
+    this.modal_message = "Your membership has been renewed successfully."
     console.log("New Date = ", date)
     this.member.End_Date = date
+    $("#exampleModal").modal('show')
   }
 
   onFailedRenewal(msg : any)
   {
-    alert("Renewal failed: "+msg)
+    this.modal_title = "Sorry!"
+    this.modal_message = msg;
+    $("#exampleModal").modal('show')
+    //alert("Renewal failed: "+msg)
   }
 
   onFailedCancellation(msg : any)
   {
-    alert("Cancellation failed: "+msg)
-    console.log(msg)
+    this.modal_title = "Sorry!"
+    this.modal_message = msg;
+    //$("#exampleModal").modal({position: ["30%","50%"]})
+    $("#exampleModal").modal('show')
   }
 
 }
