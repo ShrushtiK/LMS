@@ -15,23 +15,6 @@
     <!-- Main sidebar -->
     <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md" style="min-height:100vh;">
 
-        <!-- Sidebar mobile toggler -->
-        <!-- <div class="sidebar-mobile-toggler text-center">
-            <a href="#" class="sidebar-mobile-main-toggle">
-                <i class="icon-arrow-left8"></i>
-            </a>
-            Navigation
-            <a href="#" class="sidebar-mobile-expand">
-                <i class="icon-screen-full"></i>
-                <i class="icon-screen-normal"></i>
-            </a>
-        </div> -->
-        <!-- /sidebar mobile toggler -->
-
-        <!--
-            <div class="text-center text-muted content-divider">
-            </div>
-        -->
         <!-- Sidebar content -->
         <div class="sidebar-content">
             <!-- Main navigation -->
@@ -54,14 +37,14 @@
 
                     </ul>
                     <li class="nav-item-header">
-                        <div class="text-uppercase font-size-xs line-height-xs">YOUR MEMBERSHIP DETAILS</div> <i
+                        <div class="text-uppercase font-size-xs line-height-xs">MEMBERSHIP DETAILS</div> <i
                             class="icon-menu" title="Main"></i>
                     </li>
 
                     <ul class="nav-item nav-item-submenu">
 
                         <li class="nav-item"><a (click)='showMenuOption("details")' class="nav-link"><i
-                                    class='icon-stack'></i><span>Get Membership Details</span></a></li>
+                                    class='icon-stack'></i><span>My Membership</span></a></li>
 
 
                     </ul>
@@ -71,10 +54,11 @@
                     </li>
                     <ul class="nav-item nav-item-submenu">
 
-                        <li class="nav-item"><a (click)='showMenuOption("all_trans")' class="nav-link"><i
-                                    class='icon-stack'></i><span>All Transactions</span></a></li>
                         <li class="nav-item"><a (click)='showMenuOption("active_trans")' class="nav-link"><i
                                     class='icon-stack'></i><span>Active Transactions</span></a></li>
+                        <li class="nav-item"><a (click)='showMenuOption("all_trans")' class="nav-link"><i
+                                    class='icon-stack'></i><span>Old Transactions</span></a></li>
+                            
 
 
                     </ul>
@@ -109,55 +93,5 @@
         <app-transaction-history-all *ngIf="all_trans"></app-transaction-history-all>
         <app-transaction-history-active *ngIf="active_trans"></app-transaction-history-active>
         <app-recommendations *ngIf="sugg"></app-recommendations>
-        <div class="content" *ngIf="bleh_home">
-            <div class="row">
-                <div class="col-xl-4">
-                    <div class="card" min-height="500px">
-                        <div class="card-header header-elements-inline">
-                            <h4 class="card-title">Your Assests</h4>
-                        </div>
-                        <div class="card-body">
-                            Videos: <br /><br /><br /><br /><br />
-                            <button type="submit" class="btn btn-primary btn-block" (click)="asset()">Add new
-                                Asset</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="card">
-                        <div class="card-header header-elements-inline">
-                            <h4 class="card-title">Your Audience</h4>
-                        </div>
-
-                        <div class="card-body" width="100%">
-
-                            <ul *ngFor="let i of [1,2,3]">
-                                <li>i</li>
-                            </ul>
-
-                            <button type="submit" class="btn btn-primary btn-block" (click)="audience()">Add
-                                new</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="card">
-                        <div class="card-header header-elements-inline">
-                            <h4 class="card-title">Your Peers</h4>
-
-                        </div>
-
-                        <div class="card-body">
-                            <ul *ngFor="let i of [1,2,3]">
-                                <li>j</li>
-                            </ul>
-
-                            <button type="submit" class="btn btn-primary btn-block" (click)="peer()">Add new</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
 </div>
